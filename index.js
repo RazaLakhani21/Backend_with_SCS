@@ -18,10 +18,25 @@
 
 const http = require('http')
 
-const server = http.createServer((req, res)=>{
+const server1 = http.createServer((req, res) => {
     console.log(req.url)
-    res.end('Hello World')
+    res.end("Hello World")
 })
 
-server.listen(3000)
+const server2 = http.createServer((req, res)=>{
+    if(req.url == "/about"){
+        res.end("The About Page")
+    }
+
+    if(req.url == "/profile"){
+        res.end("The Profile Page")
+    }
+
+    if(req.url=="/"){
+        res.end("The Home Page")
+    }
+})
+
+server1.listen(3000)
+server2.listen(4000)
 
