@@ -4,25 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form-Controller</title>
+    <link rel="stylesheet" href="form_style.css">
 </head>
 <body>
-    <form action="/get-form-data" method="post">
-        <input 
+    <form class="form_parent" action="/get-form-data" method="post">
+        <input class="child_input1"
         type="text" 
         placeholder="Enter username"
         name="username"
         >
-        <input 
+        <input class="child_input2"
         type="email" 
         placeholder="Enter email"
         name="email"
         >
-        <input 
+        <input class="child_input3"
         type="password" 
         placeholder="Enter Password"
         name="password"
         >
-        <button>Submit Form</button>
+        <button class="child_button">Submit Form</button>
     </form>
 </body>
+<script src="/assets/form_ctrl.js"></script>
 </html>

@@ -1,0 +1,15 @@
+body{
+    background-color: black;
+}
+.form_parent{
+    background-color: black;
+}
+.child_input1{
+    border: solid chartreuse 2px;
+}
+.child_input2{
+    border: solid bisque 2px;
+}
+.child_input3{
+    border: solid blueviolet 2px;
+}

@@ -46,7 +46,7 @@ app.get(
     res.render("index");
   }
 
-  
+
 );
 
 app.get("/about", (req, res) => {
