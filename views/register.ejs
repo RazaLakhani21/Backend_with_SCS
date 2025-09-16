@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Signup — Clean Form</title>
+
+  <link rel="stylesheet" href="register.css">
+
+</head>
+<body>
+
+  <div class="wrap" role="main">
+    <aside class="info" aria-label="information">
+      <div class="brand">
+        <div class="logo">IN</div>
+        <div>
+          <h1>InspireForms</h1>
+          <p>Beautiful forms that delight users</p>
+        </div>
+      </div>
+
+      <p class="lead">Create your account to get started. We keep your data secure and show a clean UI for quick input — optimized for both mobile and desktop.</p>
+
+      <div class="features" aria-hidden="true">
+        <div class="feature"><span class="dot"></span> Fast sign-up flow</div>
+        <div class="feature"><span class="dot"></span> Accessible labels & keyboard-friendly</div>
+        <div class="feature"><span class="dot"></span> Modern, responsive design</div>
+      </div>
+
+      <p class="foot">By signing up you agree to our <strong>Terms</strong> and <strong>Privacy Policy</strong>.</p>
+    </aside>
+
+    <form class="card" action="/register" method="post" id="signupForm">
+      <h2>Create account</h2>
+      <p class="sub">Join us — one step away from building something great.</p>
+
+      <div class="grid">
+        <div class="field">
+          <label for="first">First name</label>
+          <input id="first" name="first" type="text" autocomplete="given-name" placeholder="Ada" required>
+        </div>
+
+        <div class="field">
+          <label for="last">Last name</label>
+          <input id="last" name="last" type="text" autocomplete="family-name" placeholder="Lovelace" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+      </div>
+
+      <div class="grid">
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="password-wrap">
+            <input id="password" name="password" type="password" minlength="8" placeholder="At least 8 characters" required>
+            <button type="button" class="toggle-btn" aria-pressed="false" id="togglePwd">Show</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="confirm">Confirm password</label>
+          <input id="confirm" name="confirm" type="password" minlength="8" placeholder="Repeat your password" required>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel">
+        </div>
+
+        <div class="field">
+          <label for="country">Country</label>
+          <select id="country" name="country" required>
+            <option value="">Choose country</option>
+            <option>India</option>
+            <option>United States</option>
+            <option>United Kingdom</option>
+            <option>Canada</option>
+            <option>Australia</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="about">About you (optional)</label>
+        <textarea id="about" name="about" rows="3" placeholder="Short bio or what you do..."></textarea>
+      </div>
+
+      <div class="checkbox-row">
+        <input id="updates" name="updates" type="checkbox">
+        <label for="updates">Send me occasional product updates</label>
+      </div>
+
+      <div style="display:flex;gap:10px;align-items:center">
+        <button class="btn" type="submit">Register User</button>
+        <button class="btn secondary" type="button" id="demoFill">Auto-fill demo</button>
+      </div>
+
+      <div id="message" role="status" aria-live="polite"></div>
+      <p class="help">Already have an account? <a href="#" style="color:inherit;text-decoration:underline">Sign in</a></p>
+    </form>
+  </div>
+
+<script src="assets/register.js"></script>
+
+</body>
+</html>
