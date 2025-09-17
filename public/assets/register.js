@@ -13,31 +13,34 @@
     const msg = document.getElementById('message');
 
     form.addEventListener('submit', (e) => {
-    //   e.preventDefault();
+      // e.preventDefault();
       msg.textContent = '';
       msg.className = '';
-
+      
       const f = new FormData(form);
       const password = f.get('password') || '';
       const confirm = f.get('confirm') || '';
-
+      
       if (password.length < 8) {
         showError('Password must be at least 8 characters.');
+        e.preventDefault();
         return;
       }
       if (password !== confirm) {
         showError('Passwords do not match.');
+        e.preventDefault();
         return;
       }
       if (!f.get('email')) {
         showError('Please enter an email address.');
+        e.preventDefault();
         return;
       }
       // Simple success feedback (replace with actual submission)
       showSuccess('All good — form validated! (Here you would send data to your server.)');
       // optional: clear sensitive fields
-      form.password.value = '';
-      form.confirm.value = '';
+      // form.password.value = '';
+      // form.confirm.value = '';
     });
 
     function showError(text){

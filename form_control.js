@@ -23,10 +23,24 @@ app.get("/register", (req, res) => {
   res.render("register");
 });
 
+// app.post("/register", async (req, res) => {
+//   console.log("📦 Request Body Received:", req.body);  // already added
+
+//   try {
+//     const user = await userModel.create(req.body);
+//     res.send("User registered successfully");
+//   } catch (err) {
+//     console.error("❌ Error creating user:", err);  // 👈 See the actual error here
+//     res.status(500).send("Server Error: " + err.message); // Optional: Send error back
+//   }
+// });
+
+
 app.post("/register", async (req, res) => {
-  const { first, last, email, password, confirm, phone, country, about, updates } =
+  const { first, last, email, password, phone, country, about, updates } =
     req.body;
-await userModel.create({
+
+  const newUser = await userModel.create({
     first: first,
     last: last,
     email: email,
@@ -34,11 +48,17 @@ await userModel.create({
     phone: phone,
     country: country,
     about: about,
-    updates: updates
+    updates: updates,
   });
-  // console.log(req.body);
-  res.send("User Registered");
+  console.log("User Registered", req.body);
+  res.send(newUser);
 });
+
+app.get('/get-users', (req, res)=>{
+  userModel.find({first: 'a'}).then((users)=>{
+    res.send(users)
+  })
+})
 
 // not to show any private information like "Password" in the url, we'll use 'app.post' instead of 'app.get'
 

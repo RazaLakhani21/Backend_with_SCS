@@ -9,9 +9,9 @@ const userSchema = new mongoose.Schema({
   phone: { type: String },
   country: { type: String },
   about: { type: String },
-  updates: { type: Boolean, default: false }
+  updates: { type: Boolean, default: false },
 });
 
-const userModel = mongoose.model('user', userSchema)
+const userModel = mongoose.model("user", userSchema);
 
-module.exports = userModel
+module.exports = userModel;
