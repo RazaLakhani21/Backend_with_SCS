@@ -35,7 +35,6 @@ app.get("/register", (req, res) => {
 //   }
 // });
 
-
 app.post("/register", async (req, res) => {
   const { first, last, email, password, phone, country, about, updates } =
     req.body;
@@ -54,11 +53,28 @@ app.post("/register", async (req, res) => {
   res.send(newUser);
 });
 
-app.get('/get-users', (req, res)=>{
-  userModel.find({first: 'a'}).then((users)=>{
-    res.send(users)
-  })
-})
+app.get("/get-users", (req, res) => {
+  // userModel.find({first: 'a'}).then((users)=>{    // .find() -> this method will work as finding all users that are searched for.
+  userModel
+    .findOne({
+      first: "1",
+    })
+    .then((users) => {
+      // .findOne() -> this method will work as finding One user that is searched for.
+      console.log(users);
+      res.send(users);
+    });
+});
+
+app.get("/update-user", async (req, res) => {
+  await userModel.findOneAndUpdate({ first: "a" }, { email: "c@c.com" });
+  res.send("user updated");
+});
+
+app.get("/delete-user", async (req, res) => {
+  await userModel.findOneAndDelete({ first: "a" });
+  res.send('User Deleted Successfully')
+});
 
 // not to show any private information like "Password" in the url, we'll use 'app.post' instead of 'app.get'
 
